@@ -1,0 +1,6 @@
+rails generate model User name:string email:string address:string password_digest:string role:string
+rails generate model Store name:string address:string
+rails generate model Rating user:references store:references score:integer
+rails generate controller Users new create login dashboard logout
+rails generate controller Stores index show
+rails generate controller Ratings new create
