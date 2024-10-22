@@ -1,0 +1,16 @@
+Rails.application.routes.draw do
+  root 'stores#index'
+
+  resources :users, only: [:new, :create] do
+    collection do
+      get 'login'
+      post 'login', to: 'users#login'
+      get 'dashboard', to: 'users#dashboard'
+      delete 'logout', to: 'users#logout'
+    end
+  end
+
+  resources :stores, only: [:index, :show] do
+    resources :ratings, only: [:new, :create]
+  end
+end
