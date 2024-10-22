@@ -1,0 +1,22 @@
+class RatingsController < ApplicationController
+  def new
+    @store = Store.find(params[:store_id])
+    @rating = Rating.new
+  end
+
+  def create
+    @rating = Rating.new(rating_params)
+    @rating.user_id = session[:user_id]
+    if @rating.save
+      redirect_to store_path(@rating.store), notice: 'Rating submitted successfully!'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def rating_params
+    params.require(:rating).permit(:score, :store_id)
+  end
+end
