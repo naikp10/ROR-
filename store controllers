@@ -1,0 +1,19 @@
+class StoresController < ApplicationController
+  def index
+    @stores = Store.all.order(sort_column + ' ' + sort_direction)
+  end
+
+  def show
+    @store = Store.find(params[:id])
+  end
+
+  private
+
+  def sort_column
+    Store.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+end
