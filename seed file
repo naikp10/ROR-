@@ -1,0 +1,5 @@
+# db/seeds.rb
+User.create([
+  { name: "Alice Johnson", email: "alice.johnson@example.com", address: "123 Maple Street, Springfield, IL", password: "Password1!", role: "normal_user" },
+  { name: "Bob Smith", email: "bob.smith@example.com", address: "456 Oak Avenue, Springfield, IL", password: "Password1!", role: "store_owner" },
+  { name: "Charlie
