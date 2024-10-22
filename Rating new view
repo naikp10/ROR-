@@ -1,0 +1,10 @@
+<h1>Rate <%= @store.name %></h1>
+<%= form_with(model: @rating, local: true) do |form| %>
+  <div>
+    <%= form.label :score %>
+    <%= form.number_field :score, in: 1..5 %>
+  </div>
+  <div>
+    <%= form.submit 'Submit Rating' %>
+  </div>
+<% end %>
