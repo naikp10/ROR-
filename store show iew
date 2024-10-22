@@ -1,0 +1,5 @@
+<h1><%= @store.name %></h1>
+<p><%= @store.address %></p>
+<h2>Ratings</h2>
+<%= render @store.ratings %>
+<%= link_to 'Rate this store', new_store_rating_path(@store) %>
